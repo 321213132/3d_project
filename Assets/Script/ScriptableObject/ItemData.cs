@@ -10,17 +10,16 @@ public enum ItemType
     Resource
 }
 
-public enum EffectType//포션 효과
+public enum ConsumableType
 {
     Health,
     Speed
 }
 
 [Serializable]
-
-public class ItemDataEffect 
+public class ItemDataConsumable 
 {
-    public EffectType type;
+    public ConsumableType type;
     public float value;
 }
 
@@ -39,7 +38,7 @@ public class ItemData : ScriptableObject
     public bool canStack;
     public int maxStack;
 
-    [Header("Effect")]
-    public ItemDataEffect[] effects;
+    [Header("Consumable")]
+    public ItemDataConsumable[] Consumable;
 
 }
