@@ -18,9 +18,6 @@ public class PlayerCondition : MonoBehaviour , IDamagalbe
 
     void FixedUpdate()
     {
-        /*stamina.Subtract(stamina.passiveValue * Time.deltaTime);
-        health.Subtract(health.passiveValue * Time.deltaTime);*/
-
         if (health.curValue == 0f)
         {
             Die();

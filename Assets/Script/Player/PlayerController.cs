@@ -9,6 +9,8 @@ public class PlayerController : MonoBehaviour
     private Vector2 curMovementInput;
     public float jumpPower;
     public LayerMask groundLayerMask;
+    public float sprintSpeed = 1.5f;//달리기 속도 곱연산
+    private bool isSpriting = false;//상태 확인
 
     [Header("Look")]
     public Transform cameraContainer;
@@ -72,10 +74,22 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void OnSprintInput(InputAction.CallbackContext context)
+    {
+        if (context.phase == InputActionPhase.Started && IsGrounded())
+        {
+            isSpriting = true;
+        }
+        else if (context.phase == InputActionPhase.Canceled)
+        {
+            isSpriting = false;
+        }
+    }
+
     private void Move()
     {
         Vector3 dir = transform.forward * curMovementInput.y + transform.right * curMovementInput.x;
-        dir *= moveSpeed;
+        dir *= moveSpeed * (isSpriting ? sprintSpeed : 1f);
         dir.y = _rigidbody.velocity.y;
 
         _rigidbody.velocity = dir;
