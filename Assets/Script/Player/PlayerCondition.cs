@@ -2,11 +2,12 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public interface IDamagalbe
 {
-    void TakePhtsicalDamage(int damage);
+    void TakePhysicalDamage(int damage);
 }
 public class PlayerCondition : MonoBehaviour , IDamagalbe
 {
@@ -20,39 +21,29 @@ public class PlayerCondition : MonoBehaviour , IDamagalbe
 
     void FixedUpdate()
     {
-        stamina.Add(stamina.passiveValue * Time.deltaTime);
         if (health.curValue == 0f)
         {
             Die();
         }
     }
 
-    public void Heal(float amout)
+    public void Heal(float amout)//체력 회복
     {
         health.Add(amout);
     }
 
-    public void Die()
+    public void Die()//죽으면 종료
     {
-
+        Application.Quit();
     }
 
-    public void TakePhtsicalDamage(int damage)
+    public void TakePhysicalDamage(int damage)
     {
         health.Subtract(damage);
         onTakeDamage?.Invoke();
     }
 
-    public bool UseStamina(float amount)
-    {
-        if(stamina.curValue - amount < 0f)
-        {
-            return false;
-        }
-
-        stamina.Subtract(amount);
-        return true;
-    }
+    //스피드코인 사용시 일정시간동안 속도 증가
     public IEnumerator BoostSpeed(float amount)
     {
         if(isBoost)

@@ -18,7 +18,7 @@ public class Trap : MonoBehaviour
     {
         for (int i = 0; i < things.Count; i++)
         {
-            things[i].TakePhtsicalDamage(damage);
+            things[i].TakePhysicalDamage(damage);
         }
     }
 

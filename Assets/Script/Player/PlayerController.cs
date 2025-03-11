@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     public LayerMask groundLayerMask;
     public float sprintSpeed = 1.5f;//�޸��� �ӵ� ������
     private bool isSpriting = false;//���� Ȯ��
+    private float staminaAmout = 1f;
 
     [Header("Look")]
     public Transform cameraContainer;
