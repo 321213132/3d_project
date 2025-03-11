@@ -1,16 +1,16 @@
-using System;
+ï»¿using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
     [Header("Movement")]
-    public float moveSpeed;
+    public float moveSpeed = 5f;
     private Vector2 curMovementInput;
     public float jumpPower;
     public LayerMask groundLayerMask;
-    public float sprintSpeed = 1.5f;//´Þ¸®±â ¼Óµµ °ö¿¬»ê
-    private bool isSpriting = false;//»óÅÂ È®ÀÎ
+    public float sprintSpeed = 1.5f;//ï¿½Þ¸ï¿½ï¿½ï¿½ ï¿½Óµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    private bool isSpriting = false;//ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½
 
     [Header("Look")]
     public Transform cameraContainer;

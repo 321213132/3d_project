@@ -195,9 +195,17 @@ public class UIInventory : MonoBehaviour
         {
             for (int i = 0; i < selectedItem.Consumable.Length; i++)
             {
-                if(selectedItem.Consumable[i].type == ConsumableType.Health)
+                switch(selectedItem.Consumable[i].type)
                 {
-                    condition.Heal(selectedItem.Consumable[i].value);
+                    case ConsumableType.Health:
+                        condition.Heal(selectedItem.Consumable[i].value);
+                        break;
+                    case ConsumableType.Speed:
+                        if(!condition.isBoost)
+                        {
+                            condition.StartSpeedBoost(selectedItem.Consumable[i].value);
+                        }
+                        break;
                 }
             }
             RemoveSelectedItem();

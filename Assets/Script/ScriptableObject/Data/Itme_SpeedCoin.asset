@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Itme_SpeedCoin
   m_EditorClassIdentifier: 
   displayName: "\uC2A4\uD53C\uB4DC\uCF54\uC778"
-  description: "\uC18D\uB3C4\uAC00 \uBE68\uB77C\uC9C4\uB2E4"
+  description: "3\uCD08 \uB3D9\uC548 \uC18D\uB3C4\uAC00 \uBE68\uB77C\uC9C4\uB2E4"
   itemType: 1
   icon: {fileID: 21300000, guid: 1a6cc0ee900872a4b857da6e6a93704f, type: 3}
   dropPrefab: {fileID: 7265325081822874605, guid: 961341951de817447995246262c3d958, type: 3}
@@ -21,4 +21,4 @@ MonoBehaviour:
   maxStack: 12
   Consumable:
   - type: 1
-    value: 1.2
+    value: 2
